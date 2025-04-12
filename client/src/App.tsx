@@ -7,6 +7,8 @@ import Courses from "@/pages/Courses";
 import Quizzes from "@/pages/Quizzes";
 import Quiz from "@/pages/Quiz";
 import Profile from "@/pages/Profile";
+import Settings from "@/pages/Settings";
+import Help from "@/pages/Help";
 import Layout from "@/components/layout/Layout";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -73,6 +75,16 @@ function AuthenticatedRoutes() {
           <Route path="/profile">
             <Layout>
               <Profile />
+            </Layout>
+          </Route>
+          <Route path="/settings">
+            <Layout>
+              <Settings />
+            </Layout>
+          </Route>
+          <Route path="/help">
+            <Layout>
+              <Help />
             </Layout>
           </Route>
         </>
