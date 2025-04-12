@@ -196,7 +196,7 @@ export default function Community() {
             </CardHeader>
             <CardContent className="flex flex-col items-center">
               <Avatar className="h-24 w-24 mb-4">
-                <AvatarImage src={user?.avatar || 'https://i.pravatar.cc/150?img=33'} />
+                <AvatarImage src={user?.avatarUrl || 'https://i.pravatar.cc/150?img=33'} />
                 <AvatarFallback>{user?.fullName?.substring(0, 2) || 'U'}</AvatarFallback>
               </Avatar>
               <h3 className="text-xl font-medium mb-1">{user?.fullName || "Student"}</h3>
@@ -250,7 +250,7 @@ export default function Community() {
                 <form onSubmit={handlePostSubmit}>
                   <div className="flex items-start gap-3">
                     <Avatar>
-                      <AvatarImage src={user?.avatar || 'https://i.pravatar.cc/150?img=33'} />
+                      <AvatarImage src={user?.avatarUrl || 'https://i.pravatar.cc/150?img=33'} />
                       <AvatarFallback>{user?.fullName?.substring(0, 2) || 'U'}</AvatarFallback>
                     </Avatar>
                     <div className="flex-1">

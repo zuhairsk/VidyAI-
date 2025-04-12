@@ -15,32 +15,48 @@ import { achievementsData, userAchievementsData } from '@/lib/data';
 const AchievementCard = ({ 
   achievement, 
   earned = false, 
-  progress = 0 
+  progress = 0,
+  points = 50 // Default points for achievements
 }: { 
   achievement: { 
     id: number;
-    name: string;
+    title: string;
     description: string;
-    icon: string;
-    category: string;
-    points: number;
+    iconName: string;
+    colorClass: string | null;
+    criteria: unknown;
   }; 
   earned?: boolean; 
   progress?: number;
+  points?: number;
 }) => {
-  // Map icons based on achievement icon string
+  // Map icons based on achievement icon name
   const iconMap: Record<string, React.ReactNode> = {
+    'emoji_events': <Award className="h-5 w-5" />,
     'star': <Star className="h-5 w-5" />,
-    'trending-up': <TrendingUp className="h-5 w-5" />,
-    'book-open': <BookOpen className="h-5 w-5" />,
-    'brain': <Brain className="h-5 w-5" />,
-    'zap': <Zap className="h-5 w-5" />,
-    'medal': <Medal className="h-5 w-5" />,
-    'clock': <Clock className="h-5 w-5" />,
-    'target': <Target className="h-5 w-5" />,
+    'trending_up': <TrendingUp className="h-5 w-5" />,
+    'menu_book': <BookOpen className="h-5 w-5" />,
+    'psychology': <Brain className="h-5 w-5" />,
+    'bolt': <Zap className="h-5 w-5" />,
+    'military_tech': <Medal className="h-5 w-5" />,
+    'schedule': <Clock className="h-5 w-5" />,
+    'track_changes': <Target className="h-5 w-5" />,
     'lightbulb': <Lightbulb className="h-5 w-5" />,
     'award': <Award className="h-5 w-5" />,
   };
+  
+  // Define category based on achievement criteria
+  const getCategory = (achievement: any): string => {
+    const criteria = achievement.criteria;
+    if (typeof criteria === 'object' && criteria !== null) {
+      if (criteria.quizCount) return 'Quiz';
+      if (criteria.courseCount) return 'Course';
+      if (criteria.loginStreak) return 'Engagement';
+    }
+    return 'General';
+  };
+
+  const category = getCategory(achievement);
   
   return (
     <motion.div variants={earned ? scaleIn : {}} className="h-full">
@@ -48,13 +64,13 @@ const AchievementCard = ({
         <CardHeader className="pb-2">
           <div className="flex justify-between items-start">
             <div className={`p-2 rounded-lg ${earned ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
-              {iconMap[achievement.icon] || <Award className="h-5 w-5" />}
+              {iconMap[achievement.iconName] || <Award className="h-5 w-5" />}
             </div>
             <Badge variant={earned ? "default" : "outline"}>
               {earned ? 'Earned' : 'In Progress'}
             </Badge>
           </div>
-          <CardTitle className="text-lg mt-2">{achievement.name}</CardTitle>
+          <CardTitle className="text-lg mt-2">{achievement.title}</CardTitle>
           <CardDescription>{achievement.description}</CardDescription>
         </CardHeader>
         <CardContent className="pb-2">
@@ -71,10 +87,10 @@ const AchievementCard = ({
         <CardFooter className="pt-2">
           <div className="flex items-center justify-between w-full">
             <Badge variant="outline" className="bg-primary/10">
-              {achievement.category}
+              {category}
             </Badge>
             <div className="text-sm font-medium text-primary">
-              {achievement.points} pts
+              {points} pts
             </div>
           </div>
         </CardFooter>
@@ -91,14 +107,22 @@ export default function Achievements() {
   const earnedAchievements = userAchievementsData.filter(ua => ua.userId === (user?.id || 1));
   const earnedIds = earnedAchievements.map(a => a.achievementId);
   
-  // Calculate total points
-  const totalPoints = earnedAchievements.reduce((sum, ua) => {
-    const achievement = achievementsData.find(a => a.id === ua.achievementId);
-    return sum + (achievement?.points || 0);
-  }, 0);
+  // Define a function to get category for each achievement
+  const getCategory = (achievement: any): string => {
+    const criteria = achievement.criteria;
+    if (typeof criteria === 'object' && criteria !== null) {
+      if (criteria.quizCount) return 'Quiz';
+      if (criteria.courseCount) return 'Course';
+      if (criteria.loginStreak) return 'Engagement';
+    }
+    return 'General';
+  };
+  
+  // Calculate total points (50 points per achievement)
+  const totalPoints = earnedAchievements.length * 50;
   
   // Group achievements by category
-  const categories = [...new Set(achievementsData.map(a => a.category))];
+  const categories = ['General', 'Quiz', 'Course', 'Engagement'];
   
   return (
     <motion.div 
@@ -163,7 +187,7 @@ export default function Achievements() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {achievementsData
-                .filter(a => a.category === category)
+                .filter(a => getCategory(a) === category)
                 .map(achievement => {
                   const earned = earnedIds.includes(achievement.id);
                   // Calculate random progress for non-earned achievements
@@ -175,6 +199,7 @@ export default function Achievements() {
                       achievement={achievement} 
                       earned={earned}
                       progress={progress}
+                      points={50} // Assign 50 points to each achievement
                     />
                   );
                 })

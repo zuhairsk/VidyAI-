@@ -92,27 +92,32 @@ export default function Login() {
       <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-5xl bg-white rounded-xl shadow-xl overflow-hidden">
         {/* Left side - Educational image */}
         <div className="hidden md:block relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-600/90 to-primary-800/90 z-10"></div>
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-600/80 to-primary-800/80 z-10"></div>
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1622&q=80')] bg-cover bg-center"></div>
           <div className="relative z-20 flex flex-col h-full justify-center items-center p-12 text-white">
-            <h2 className="text-3xl font-bold mb-6">Empower your education journey</h2>
-            <p className="text-lg mb-8 text-white/90">A personalized learning experience with AI assistance in your preferred language.</p>
+            <h2 className="text-3xl font-bold mb-6">Personalized Learning for All</h2>
+            <p className="text-lg mb-8 text-white/90">AI-powered education in your native language for government school students.</p>
+            <div className="flex mb-6">
+              <img src="https://img.icons8.com/fluency/96/000000/student-center.png" className="h-16 w-16 mr-2" alt="Student" />
+              <img src="https://img.icons8.com/fluency/96/000000/class.png" className="h-16 w-16 mr-2" alt="Class" />
+              <img src="https://img.icons8.com/fluency/96/000000/smartphone-tablet.png" className="h-16 w-16" alt="Digital Learning" />
+            </div>
             <div className="grid grid-cols-2 gap-4 w-full max-w-xs">
               <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
                 <div className="text-2xl font-bold">12+</div>
                 <div className="text-sm">Languages</div>
               </div>
               <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                <div className="text-2xl font-bold">500+</div>
-                <div className="text-sm">Courses</div>
+                <div className="text-2xl font-bold">All</div>
+                <div className="text-sm">Grades 1-12</div>
               </div>
               <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                <div className="text-2xl font-bold">100K+</div>
-                <div className="text-sm">Students</div>
+                <div className="text-2xl font-bold">100%</div>
+                <div className="text-sm">Free</div>
               </div>
               <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                <div className="text-2xl font-bold">24/7</div>
-                <div className="text-sm">Support</div>
+                <div className="text-2xl font-bold">AI</div>
+                <div className="text-sm">Powered</div>
               </div>
             </div>
           </div>
