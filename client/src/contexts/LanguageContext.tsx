@@ -1,0 +1,86 @@
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { translations } from '@/lib/translations';
+
+// Define available languages
+export type LanguageCode = 'en' | 'hi' | 'te' | 'ta' | 'mr';
+
+type LanguageContextType = {
+  language: LanguageCode;
+  setLanguage: (lang: LanguageCode) => void;
+  t: (key: string) => string;
+  availableLanguages: { code: LanguageCode; name: string }[];
+};
+
+const availableLanguages = [
+  { code: 'en' as LanguageCode, name: 'English' },
+  { code: 'hi' as LanguageCode, name: 'हिंदी' },
+  { code: 'te' as LanguageCode, name: 'తెలుగు' },
+  { code: 'ta' as LanguageCode, name: 'தமிழ்' },
+  { code: 'mr' as LanguageCode, name: 'मराठी' },
+];
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const [language, setLanguageState] = useState<LanguageCode>(() => {
+    // Check if user previously selected a language
+    const savedLanguage = localStorage.getItem('vidyai-language');
+    return (savedLanguage as LanguageCode) || 'en';
+  });
+
+  useEffect(() => {
+    // Update html lang attribute
+    document.documentElement.lang = language;
+    
+    // Save language preference
+    localStorage.setItem('vidyai-language', language);
+  }, [language]);
+
+  const setLanguage = (lang: LanguageCode) => {
+    setLanguageState(lang);
+  };
+
+  const t = (key: string): string => {
+    // Split the key by dots to support nested objects
+    const keys = key.split('.');
+    let translation: any = translations[language] || translations.en;
+    
+    // Navigate through the nested structure
+    for (const k of keys) {
+      translation = translation?.[k];
+      if (!translation) {
+        // Fallback to English if translation not found
+        translation = translations.en;
+        for (const k of keys) {
+          translation = translation?.[k];
+          if (!translation) break;
+        }
+        
+        // If still not found, return the key itself
+        if (!translation) return key;
+        break;
+      }
+    }
+    
+    return translation as string;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ 
+      language, 
+      setLanguage,
+      t,
+      availableLanguages
+    }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+
+export function useLanguage() {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+}
