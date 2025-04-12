@@ -50,6 +50,30 @@ export function Header() {
                 </a>
               </Link>
             </div>
+            
+            {/* Navigation Links */}
+            <div className="hidden md:ml-6 md:flex md:space-x-4">
+              <Link href="/dashboard">
+                <a className="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+                  {t('sidebar.dashboard')}
+                </a>
+              </Link>
+              <Link href="/courses">
+                <a className="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+                  {t('sidebar.myCourses')}
+                </a>
+              </Link>
+              <Link href="/community">
+                <a className="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+                  {t('sidebar.community')}
+                </a>
+              </Link>
+              <Link href="/achievements">
+                <a className="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+                  {t('sidebar.achievements')}
+                </a>
+              </Link>
+            </div>
           </div>
           
           <div className="flex items-center space-x-4">
@@ -109,6 +133,14 @@ export function Header() {
                 <DropdownMenuItem onClick={() => setLocation('/profile')}>
                   <span className="material-icons-round mr-2 text-sm">person</span>
                   {t('header.profile')}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLocation('/community')}>
+                  <span className="material-icons-round mr-2 text-sm">forum</span>
+                  {t('sidebar.community')}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLocation('/achievements')}>
+                  <span className="material-icons-round mr-2 text-sm">emoji_events</span>
+                  {t('sidebar.achievements')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setLocation('/settings')}>
                   <span className="material-icons-round mr-2 text-sm">settings</span>
