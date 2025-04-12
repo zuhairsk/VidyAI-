@@ -136,7 +136,7 @@ export const quizQuestions = pgTable("quiz_questions", {
   quizId: integer("quiz_id").notNull(),
   questionText: text("question_text").notNull(),
   options: jsonb("options").notNull(), // Array of options
-  correctOptionIndex: integer("correct_option_index").notNull(),
+  correctOptionIndex: text("correct_option_index").notNull(), // Changed from integer to text to support option IDs like 'a', 'b', etc.
   explanation: text("explanation"),
   order: integer("order").notNull(),
 });

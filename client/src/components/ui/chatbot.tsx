@@ -4,17 +4,27 @@ import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { startSpeechRecognition, stopSpeechRecognition, speakText } from '@/utils/speechUtils';
+import { Badge } from '@/components/ui/badge';
+import { getAIResponse } from '@/lib/openai';
+import { Skeleton } from '@/components/ui/skeleton';
+
+type MessageType = 'text' | 'suggestion' | 'resource' | 'error';
 
 type Message = {
   id: string;
   text: string;
   sender: 'user' | 'bot';
   timestamp: Date;
+  type?: MessageType;
+  suggestions?: string[];
+  resources?: { title: string; url: string }[];
 };
 
 export function Chatbot() {
   const { t } = useLanguage();
+  const { user } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -22,10 +32,12 @@ export function Chatbot() {
       text: t('chatbot.welcome'),
       sender: 'bot',
       timestamp: new Date(),
+      type: 'text',
     },
   ]);
   const [newMessage, setNewMessage] = useState('');
   const [isListening, setIsListening] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -52,35 +64,59 @@ export function Chatbot() {
       text: newMessage,
       sender: 'user',
       timestamp: new Date(),
+      type: 'text',
     };
     
     setMessages(prev => [...prev, userMessage]);
     setNewMessage('');
+    setIsProcessing(true);
 
     // Focus the input after sending
     if (inputRef.current) {
       inputRef.current.focus();
     }
 
-    // Simulate bot response (in a real app, would call AI API)
-    setTimeout(() => {
-      // Mock responses - in a real app this would call an AI API endpoint
-      const responses = [
-        t('chatbot.responses.help'),
-        t('chatbot.responses.subjects'),
-        t('chatbot.responses.progress'),
-        t('chatbot.responses.suggestion'),
-      ];
+    try {
+      // Prepare chat history for AI
+      const chatHistory = messages.slice(-5).map(msg => ({
+        role: msg.sender === 'user' ? 'user' as const : 'assistant' as const,
+        content: msg.text
+      }));
+
+      // Call OpenAI API for a response
+      const aiResponse = await getAIResponse(
+        newMessage, 
+        chatHistory,
+        user?.gradeLevel || undefined, // Convert null to undefined
+        undefined // subject context
+      );
       
       const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        text: responses[Math.floor(Math.random() * responses.length)],
+        id: Date.now().toString(),
+        text: aiResponse.text,
         sender: 'bot',
         timestamp: new Date(),
+        type: aiResponse.type,
+        suggestions: aiResponse.suggestions,
       };
       
       setMessages(prev => [...prev, botMessage]);
-    }, 1000);
+    } catch (error) {
+      console.error('Error getting AI response:', error);
+      
+      // Fallback response for errors
+      const fallbackMessage: Message = {
+        id: Date.now().toString(),
+        text: t('chatbot.errorResponse'),
+        sender: 'bot',
+        timestamp: new Date(),
+        type: 'error',
+      };
+      
+      setMessages(prev => [...prev, fallbackMessage]);
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   const toggleListening = () => {

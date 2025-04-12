@@ -14,10 +14,118 @@ export const subjectsData = [
   { id: 7, name: "Geography", code: "geography", iconName: "terrain", colorClass: "emerald" },
   { id: 8, name: "Civics", code: "civics", iconName: "account_balance", colorClass: "teal" },
   { id: 9, name: "Economics", code: "economics", iconName: "attach_money", colorClass: "amber" },
+  { id: 10, name: "Computer Science", code: "computer", iconName: "computer", colorClass: "blue" },
+  { id: 11, name: "Art & Craft", code: "art", iconName: "palette", colorClass: "pink" },
+  { id: 12, name: "Physical Education", code: "pe", iconName: "fitness_center", colorClass: "green" },
 ];
 
-// Courses
+// Courses - Expanded with courses from grades 1-12
 export const coursesData: Course[] = [
+  // Grade 1 Courses
+  {
+    id: 101,
+    title: "Numbers & Counting",
+    description: "Learn to count from 1 to 100 with interactive exercises and fun games.",
+    subjectId: 1, // Mathematics
+    gradeLevel: 1,
+    imageUrl: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 8,
+    durationMinutes: 160,
+    featured: true,
+    createdAt: new Date()
+  },
+  {
+    id: 102,
+    title: "Basic Hindi Alphabet",
+    description: "Introduction to Hindi alphabets with pronunciation guides and writing practice.",
+    subjectId: 4, // Hindi
+    gradeLevel: 1,
+    imageUrl: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 10,
+    durationMinutes: 200,
+    featured: false,
+    createdAt: new Date()
+  },
+  
+  // Grade 2 Courses
+  {
+    id: 201,
+    title: "Addition & Subtraction",
+    description: "Learn basic addition and subtraction with numbers up to 100.",
+    subjectId: 1, // Mathematics
+    gradeLevel: 2,
+    imageUrl: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 10,
+    durationMinutes: 200,
+    featured: false,
+    createdAt: new Date()
+  },
+  {
+    id: 202,
+    title: "Plants & Animals",
+    description: "Discover the world of plants and animals around us.",
+    subjectId: 2, // Science
+    gradeLevel: 2,
+    imageUrl: "https://images.unsplash.com/photo-1504198266287-1659872e6590?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 8,
+    durationMinutes: 160,
+    featured: true,
+    createdAt: new Date()
+  },
+  
+  // Grade 3 Courses
+  {
+    id: 301,
+    title: "Multiplication Basics",
+    description: "Learn multiplication tables and basic multiplication concepts.",
+    subjectId: 1, // Mathematics
+    gradeLevel: 3,
+    imageUrl: "https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 12,
+    durationMinutes: 240,
+    featured: false,
+    createdAt: new Date()
+  },
+  {
+    id: 302,
+    title: "My Community",
+    description: "Learn about different community helpers and their roles.",
+    subjectId: 3, // Social Studies
+    gradeLevel: 3,
+    imageUrl: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 6,
+    durationMinutes: 120,
+    featured: true,
+    createdAt: new Date()
+  },
+  
+  // Grade 4 Courses (including existing course)
+  {
+    id: 7,
+    title: "Creative Hindi Writing",
+    description: "Enhance your Hindi writing skills through creative storytelling and poetry.",
+    subjectId: 4, // Hindi
+    gradeLevel: 4,
+    imageUrl: "https://images.unsplash.com/photo-1546833998-877b37c2e5c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 6,
+    durationMinutes: 180,
+    featured: true,
+    createdAt: new Date()
+  },
+  {
+    id: 401,
+    title: "Fractions & Decimals",
+    description: "Introduction to fractions and decimals with real-world applications.",
+    subjectId: 1, // Mathematics
+    gradeLevel: 4,
+    imageUrl: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 10,
+    durationMinutes: 200,
+    featured: false,
+    createdAt: new Date()
+  },
+  
+  // Grade 5 Courses (including existing courses)
   {
     id: 1,
     title: "Introduction to Fractions",
@@ -66,6 +174,8 @@ export const coursesData: Course[] = [
     featured: true,
     createdAt: new Date()
   },
+  
+  // Grade 6 Courses (including existing courses)
   {
     id: 5,
     title: "Human Body Systems",
@@ -79,6 +189,20 @@ export const coursesData: Course[] = [
     createdAt: new Date()
   },
   {
+    id: 601,
+    title: "Introduction to Geometry",
+    description: "Learn about basic geometric shapes, angles, and their properties.",
+    subjectId: 1, // Mathematics
+    gradeLevel: 6,
+    imageUrl: "https://images.unsplash.com/photo-1580894908361-967195033215?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 12,
+    durationMinutes: 300,
+    featured: false,
+    createdAt: new Date()
+  },
+  
+  // Grade 7 Courses (including existing course)
+  {
     id: 6,
     title: "Ancient Indian Civilizations",
     description: "Journey through the rich history of ancient Indian civilizations with virtual tours.",
@@ -91,21 +215,196 @@ export const coursesData: Course[] = [
     createdAt: new Date()
   },
   {
-    id: 7,
-    title: "Creative Hindi Writing",
-    description: "Enhance your Hindi writing skills through creative storytelling and poetry.",
-    subjectId: 4, // Hindi
-    gradeLevel: 4,
-    imageUrl: "https://images.unsplash.com/photo-1546833998-877b37c2e5c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
-    totalLessons: 6,
-    durationMinutes: 180,
+    id: 701,
+    title: "Climate & Weather Patterns",
+    description: "Understand weather patterns, climate zones, and environmental impacts.",
+    subjectId: 2, // Science
+    gradeLevel: 7,
+    imageUrl: "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 10,
+    durationMinutes: 300,
+    featured: false,
+    createdAt: new Date()
+  },
+  
+  // Grade 8 Courses
+  {
+    id: 801,
+    title: "Algebra & Linear Equations",
+    description: "Solve linear equations and understand algebraic concepts in depth.",
+    subjectId: 1, // Mathematics
+    gradeLevel: 8,
+    imageUrl: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80", 
+    totalLessons: 15,
+    durationMinutes: 450,
+    featured: true,
+    createdAt: new Date()
+  },
+  {
+    id: 802,
+    title: "Cell Biology",
+    description: "Explore the structure and function of cells, the building blocks of life.",
+    subjectId: 2, // Science
+    gradeLevel: 8,
+    imageUrl: "https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 12,
+    durationMinutes: 360,
+    featured: false,
+    createdAt: new Date()
+  },
+  
+  // Grade 9 Courses
+  {
+    id: 901,
+    title: "Quadratic Equations",
+    description: "Master quadratic equations and their applications in real-world scenarios.",
+    subjectId: 1, // Mathematics
+    gradeLevel: 9,
+    imageUrl: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 14,
+    durationMinutes: 420,
+    featured: true,
+    createdAt: new Date()
+  },
+  {
+    id: 902,
+    title: "Economics Basics",
+    description: "Learn fundamental economic concepts and their impact on society.",
+    subjectId: 9, // Economics
+    gradeLevel: 9,
+    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 10,
+    durationMinutes: 300,
+    featured: false,
+    createdAt: new Date()
+  },
+  
+  // Grade 10 Courses
+  {
+    id: 1001,
+    title: "Trigonometry",
+    description: "Understand trigonometric functions and solve complex problems.",
+    subjectId: 1, // Mathematics
+    gradeLevel: 10,
+    imageUrl: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 16,
+    durationMinutes: 480,
+    featured: true,
+    createdAt: new Date()
+  },
+  {
+    id: 1002,
+    title: "Chemical Reactions",
+    description: "Explore different types of chemical reactions and their real-world applications.",
+    subjectId: 2, // Science
+    gradeLevel: 10,
+    imageUrl: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 14,
+    durationMinutes: 420,
+    featured: false,
+    createdAt: new Date()
+  },
+  
+  // Grade 11 Courses 
+  {
+    id: 1101,
+    title: "Calculus Fundamentals",
+    description: "Introduction to differential and integral calculus with practical applications.",
+    subjectId: 1, // Mathematics
+    gradeLevel: 11,
+    imageUrl: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 20,
+    durationMinutes: 600,
+    featured: true,
+    createdAt: new Date()
+  },
+  {
+    id: 1102,
+    title: "Physics: Motion & Energy",
+    description: "Understand the laws of motion, energy conservation, and mechanical systems.",
+    subjectId: 2, // Science
+    gradeLevel: 11,
+    imageUrl: "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 18,
+    durationMinutes: 540,
+    featured: false,
+    createdAt: new Date()
+  },
+  
+  // Grade 12 Courses
+  {
+    id: 1201,
+    title: "Advanced Calculus",
+    description: "Higher-level calculus concepts for college preparation and competitive exams.",
+    subjectId: 1, // Mathematics
+    gradeLevel: 12,
+    imageUrl: "https://images.unsplash.com/photo-1580894732930-0babd100d356?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 22,
+    durationMinutes: 660,
+    featured: true,
+    createdAt: new Date()
+  },
+  {
+    id: 1202,
+    title: "Computer Programming",
+    description: "Learn the basics of programming with practical coding projects.",
+    subjectId: 10, // Computer Science
+    gradeLevel: 12,
+    imageUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80",
+    totalLessons: 16,
+    durationMinutes: 480,
     featured: true,
     createdAt: new Date()
   }
 ];
 
-// Lessons
+// Lessons with videos and PDFs (expanded)
 export const lessonsData: Lesson[] = [
+  // Grade 1 - Numbers & Counting Course (id: 101)
+  {
+    id: 1001,
+    title: "Counting from 1 to 10",
+    description: "Learn to count objects from 1 to 10 with fun visuals.",
+    courseId: 101,
+    videoUrl: "https://www.youtube.com/watch?v=DR-cfDsHCGA",
+    pdfUrl: "https://www.education.com/download/worksheet/174412/counting-1-10.pdf",
+    order: 1,
+    durationMinutes: 20
+  },
+  {
+    id: 1002,
+    title: "Counting from 10 to 20",
+    description: "Continue your counting journey from 10 to 20.",
+    courseId: 101,
+    videoUrl: "https://www.youtube.com/watch?v=xNw1SSz18Gg",
+    pdfUrl: "https://www.education.com/download/worksheet/174418/counting-10-20.pdf",
+    order: 2,
+    durationMinutes: 20
+  },
+  
+  // Grade 2 - Addition & Subtraction Course (id: 201)
+  {
+    id: 2001,
+    title: "Basic Addition",
+    description: "Learn to add single-digit numbers using visual aids.",
+    courseId: 201,
+    videoUrl: "https://www.youtube.com/watch?v=AaxrqDuw1Xk",
+    pdfUrl: "https://www.math-drills.com/addition/addition_single_digit_0109_001.pdf",
+    order: 1,
+    durationMinutes: 20
+  },
+  {
+    id: 2002,
+    title: "Basic Subtraction",
+    description: "Learn to subtract single-digit numbers with examples.",
+    courseId: 201,
+    videoUrl: "https://www.youtube.com/watch?v=BkSO95jlMjs",
+    pdfUrl: "https://www.math-drills.com/subtraction/subtraction_single_digit_0109_001.pdf",
+    order: 2,
+    durationMinutes: 20
+  },
+  
+  // Existing Grade 5 Lessons - Introduction to Fractions (id: 1)
   {
     id: 1,
     title: "What are Fractions?",
@@ -136,6 +435,8 @@ export const lessonsData: Lesson[] = [
     order: 3,
     durationMinutes: 30
   },
+  
+  // Existing Grade 5 - Our Solar System (id: 2)
   {
     id: 4,
     title: "Introduction to Our Solar System",
@@ -153,6 +454,72 @@ export const lessonsData: Lesson[] = [
     courseId: 2,
     videoUrl: "https://www.youtube.com/watch?v=6FB0pDpUxyM",
     pdfUrl: "https://www.nasa.gov/pdf/the_sun.pdf",
+    order: 2,
+    durationMinutes: 30
+  },
+  
+  // Grade 9 - Quadratic Equations (id: 901)
+  {
+    id: 9001,
+    title: "Introduction to Quadratic Equations",
+    description: "Learn what quadratic equations are and their standard form.",
+    courseId: 901,
+    videoUrl: "https://www.youtube.com/watch?v=qeByhTF8sEU",
+    pdfUrl: "https://www.mathworksheets4kids.com/quadratic-equation/standard-form/writing-1.pdf",
+    order: 1,
+    durationMinutes: 30
+  },
+  {
+    id: 9002,
+    title: "Solving by Factoring",
+    description: "Learn to solve quadratic equations using factoring techniques.",
+    courseId: 901,
+    videoUrl: "https://www.youtube.com/watch?v=S-SnepCnc4Y",
+    pdfUrl: "https://www.mathworksheets4kids.com/quadratic-equation/factoring/solving-1.pdf",
+    order: 2,
+    durationMinutes: 30
+  },
+  
+  // Grade 12 - Computer Programming (id: 1202)
+  {
+    id: 12001,
+    title: "Introduction to Programming Concepts",
+    description: "Learn basic programming concepts like variables, functions, and loops.",
+    courseId: 1202,
+    videoUrl: "https://www.youtube.com/watch?v=zOjov-2OZ0E",
+    pdfUrl: "https://launchschool.com/books/programming/read/introduction",
+    order: 1,
+    durationMinutes: 30
+  },
+  {
+    id: 12002,
+    title: "Your First Program",
+    description: "Write your first program and understand how it works.",
+    courseId: 1202,
+    videoUrl: "https://www.youtube.com/watch?v=DWWQEmyVplU",
+    pdfUrl: "https://launchschool.com/books/javascript/read/preparations",
+    order: 2,
+    durationMinutes: 30
+  },
+  
+  // Grade 11 - Calculus Fundamentals (id: 1101)
+  {
+    id: 11001,
+    title: "Introduction to Limits",
+    description: "Understanding the concept of limits in calculus.",
+    courseId: 1101,
+    videoUrl: "https://www.youtube.com/watch?v=riXcZT2ICjA",
+    pdfUrl: "https://tutorial.math.lamar.edu/pdf/Calculus_Cheat_Sheet_Limits.pdf",
+    order: 1,
+    durationMinutes: 30
+  },
+  {
+    id: 11002,
+    title: "Derivatives: The Basics",
+    description: "Learn what derivatives are and how to find them.",
+    courseId: 1101,
+    videoUrl: "https://www.youtube.com/watch?v=O8xoEKvQmcg",
+    pdfUrl: "https://tutorial.math.lamar.edu/pdf/Calculus_Cheat_Sheet_Derivatives.pdf",
     order: 2,
     durationMinutes: 30
   }

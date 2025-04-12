@@ -88,7 +88,7 @@ export const translations: TranslationCollection = {
       dashboard: 'Dashboard',
       myCourses: 'My Courses',
       quizzes: 'Quizzes',
-      welcomeBack: 'Welcome back, {name}!',
+      welcomeBack: 'Welcome back, {{name}}!',
       continueJourney: 'Continue your learning journey or explore new subjects. You have lessons scheduled for today.',
       resumeLearning: 'Resume Learning',
       voiceAssistant: 'Voice Assistant',
@@ -256,12 +256,34 @@ export const translations: TranslationCollection = {
       voice: 'Voice',
       stopListening: 'Stop Listening',
       textToSpeech: 'Text to Speech',
+      errorResponse: 'I\'m having trouble connecting right now. Please try again later.',
       responses: {
         help: 'I can help you find courses, answer questions about your assignments, or provide explanations on various topics. What would you like help with?',
-        subjects: 'We offer courses in Mathematics, Science, Hindi, English, Social Studies, History, Geography, Civics, and Economics. Which subject are you interested in?',
+        subjects: 'We offer courses in Mathematics, Science, Hindi, English, Social Studies, History, Geography, Civics, Economics, Computer Science, Art & Craft, and Physical Education. Which subject are you interested in?',
         progress: 'You are making great progress! You have completed 25% of your current courses. Keep it up!',
         suggestion: 'Based on your interests, I recommend checking out the "Algebra Fundamentals" course. It has great interactive exercises!',
       },
+    },
+    
+    // Feedback
+    feedback: {
+      giveFeedback: 'Give Feedback',
+      title: 'Your Feedback',
+      helpUsImprove: 'Help Us Improve',
+      shareYourThoughts: 'We value your input! Please share your thoughts, suggestions, or report any issues you\'ve encountered.',
+      feedbackType: 'Type of Feedback',
+      issue: 'Issue/Problem',
+      suggestion: 'Suggestion',
+      question: 'Question',
+      praise: 'Praise',
+      yourFeedback: 'Your Feedback',
+      feedbackPlaceholder: 'Tell us what you think...',
+      submit: 'Submit Feedback',
+      submitting: 'Submitting...',
+      thankYou: 'Thank You!',
+      submitted: 'Your feedback has been submitted. We appreciate your help in making VidyAI better!',
+      error: 'Error',
+      errorSubmitting: 'There was an error submitting your feedback. Please try again later.',
     },
     
     // Subjects
@@ -354,7 +376,7 @@ export const translations: TranslationCollection = {
       dashboard: 'डैशबोर्ड',
       myCourses: 'मेरे पाठ्यक्रम',
       quizzes: 'क्विज़',
-      welcomeBack: 'वापसी पर स्वागत है, {name}!',
+      welcomeBack: 'वापसी पर स्वागत है, {{name}}!',
       continueJourney: 'अपनी सीखने की यात्रा जारी रखें या नए विषयों का अन्वेषण करें। आज के लिए आपके पास पाठ शेड्यूल हैं।',
       resumeLearning: 'सीखना जारी रखें',
       voiceAssistant: 'वॉयस असिस्टेंट',
@@ -565,7 +587,7 @@ export const translations: TranslationCollection = {
       dashboard: 'డాష్‌బోర్డ్',
       myCourses: 'నా కోర్సులు',
       quizzes: 'క్విజ్‌లు',
-      welcomeBack: 'తిరిగి స్వాగతం, {name}!',
+      welcomeBack: 'తిరిగి స్వాగతం, {{name}}!',
     },
     
     subjects: {

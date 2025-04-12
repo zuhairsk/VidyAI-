@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
 import { Chatbot } from '@/components/ui/chatbot';
+import { FeedbackButton } from '@/components/shared/Feedback';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -24,6 +25,8 @@ export default function Layout({ children }: LayoutProps) {
         </main>
       </div>
       
+      {/* Floating UI Elements */}
+      <FeedbackButton />
       <Chatbot />
     </div>
   );

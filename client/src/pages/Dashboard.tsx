@@ -144,7 +144,7 @@ export default function Dashboard() {
               </h2>
             </div>
             <p className="mt-2 text-primary-100 max-w-xl">
-              {t('dashboard.continueJourney')}
+              {t('dashboard.continueJourney')} {user?.gradeLevel ? `${t('courses.gradeText')} ${user?.gradeLevel}` : ''}
             </p>
             
             <div className="mt-4 flex space-x-3">
@@ -255,13 +255,22 @@ export default function Dashboard() {
         </div>
         
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {sampleCourses.map((course) => (
-            <CourseCard
-              key={course.id}
-              course={course}
-              studentsCount={Math.floor(Math.random() * 400) + 100}
-            />
-          ))}
+          {sampleCourses.map((course) => {
+            // Add missing properties required by the Course type
+            const courseWithDefaults = {
+              ...course,
+              createdAt: new Date(),
+              featured: false
+            };
+            
+            return (
+              <CourseCard
+                key={course.id}
+                course={courseWithDefaults}
+                studentsCount={Math.floor(Math.random() * 400) + 100}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
