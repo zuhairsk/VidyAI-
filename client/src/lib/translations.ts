@@ -624,7 +624,7 @@ export const translations: TranslationCollection = {
       dashboard: 'டாஷ்போர்டு',
       myCourses: 'எனது பாடநெறிகள்',
       quizzes: 'வினாடி வினாக்கள்',
-      welcomeBack: 'மீண்டும் வரவேற்கிறோம், {name}!',
+      welcomeBack: 'மீண்டும் வரவேற்கிறோம், {{name}}!',
     },
     
     subjects: {
@@ -661,7 +661,7 @@ export const translations: TranslationCollection = {
       dashboard: 'डॅशबोर्ड',
       myCourses: 'माझे अभ्यासक्रम',
       quizzes: 'प्रश्नमंजुषा',
-      welcomeBack: 'पुन्हा स्वागत आहे, {name}!',
+      welcomeBack: 'पुन्हा स्वागत आहे, {{name}}!',
     },
     
     subjects: {

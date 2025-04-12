@@ -140,7 +140,7 @@ export default function Dashboard() {
             <div className="flex items-center">
               <span className="material-icons-round text-white text-3xl animate-bounce">assistant</span>
               <h2 className="ml-2 text-white text-lg md:text-2xl font-heading font-bold">
-                {t('dashboard.welcomeBack', { name: user?.fullName || user?.username || 'Student' })}
+                {t('dashboard.welcomeBack').replace('{{name}}', user?.fullName || user?.username || 'Student')}
               </h2>
             </div>
             <p className="mt-2 text-primary-100 max-w-xl">
