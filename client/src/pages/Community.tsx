@@ -24,6 +24,7 @@ const communityPosts = [
     timeAgo: '2h',
     subject: 'Mathematics',
     grade: '10',
+    hasImage: false,
   },
   {
     id: 2,
@@ -35,6 +36,7 @@ const communityPosts = [
     timeAgo: '5h',
     subject: 'Science',
     grade: '9',
+    hasImage: false,
   },
   {
     id: 3,
@@ -46,6 +48,8 @@ const communityPosts = [
     timeAgo: '1d',
     subject: 'Science',
     grade: '11',
+    hasImage: true,
+    image: 'https://img.freepik.com/free-vector/biology-concept-education-subject-study-living-organism_277904-5236.jpg?w=826&t=st=1714405844~exp=1714406444~hmac=c8ba35f92680f6f2b5502a1f1bc5d93c5bd75c9d962fd1b58a9fe5c078c73c06',
   },
   {
     id: 4,
@@ -57,6 +61,32 @@ const communityPosts = [
     timeAgo: '1d',
     subject: 'History',
     grade: '8',
+    hasImage: false,
+  },
+  {
+    id: 5,
+    author: 'Meena Kumari',
+    avatar: 'https://i.pravatar.cc/150?img=23',
+    content: 'Just discovered this amazing AI-powered visual learning feature in VidyaAI++ that helps me understand complex geometry concepts! Look at this 3D visualization of a cone:',
+    likes: 42,
+    comments: 15,
+    timeAgo: '3h',
+    subject: 'Mathematics',
+    grade: '11',
+    hasImage: true,
+    image: 'https://img.freepik.com/free-vector/vector-colorful-education-school-black-background-illustration_460848-7981.jpg?w=996&t=st=1714405779~exp=1714406379~hmac=0c45b44a5e64d71d24e66aa50ecf6a65fde55cc81e20b5f9dfa65dfa0a97f19e',
+  },
+  {
+    id: 6,
+    author: 'Arjun Reddy',
+    avatar: 'https://i.pravatar.cc/150?img=5',
+    content: 'Learning English has never been easier! The AI tutor helps me practice my pronunciation and grammar in real-time. My speaking score improved from 65% to 89% in just one month!',
+    likes: 31,
+    comments: 7,
+    timeAgo: '9h',
+    subject: 'English',
+    grade: '9',
+    hasImage: false,
   },
 ];
 
@@ -99,6 +129,17 @@ const studyGroups = [
 // Community Post Component
 const CommunityPost = ({ post }: { post: typeof communityPosts[0] }) => {
   const { t } = useLanguage();
+  const [liked, setLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(post.likes);
+  
+  const handleLike = () => {
+    if (liked) {
+      setLikeCount(prev => prev - 1);
+    } else {
+      setLikeCount(prev => prev + 1);
+    }
+    setLiked(!liked);
+  };
   
   return (
     <Card className="mb-4">
@@ -116,6 +157,15 @@ const CommunityPost = ({ post }: { post: typeof communityPosts[0] }) => {
       </CardHeader>
       <CardContent>
         <p className="mb-3">{post.content}</p>
+        {post.hasImage && post.image && (
+          <div className="mb-4 rounded-lg overflow-hidden">
+            <img 
+              src={post.image} 
+              alt="Post attachment" 
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        )}
         <div className="flex gap-2">
           <Badge variant="outline" className="bg-primary/10">{post.subject}</Badge>
           <Badge variant="outline">Grade {post.grade}</Badge>
@@ -123,8 +173,13 @@ const CommunityPost = ({ post }: { post: typeof communityPosts[0] }) => {
       </CardContent>
       <CardFooter className="pt-0 border-t px-6 py-3">
         <div className="flex items-center gap-4 w-full">
-          <Button variant="ghost" size="sm" className="flex gap-1 items-center">
-            <ThumbsUp className="h-4 w-4" /> {post.likes}
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className={`flex gap-1 items-center ${liked ? 'text-primary-600' : ''}`}
+            onClick={handleLike}
+          >
+            <ThumbsUp className="h-4 w-4" /> {likeCount}
           </Button>
           <Button variant="ghost" size="sm" className="flex gap-1 items-center">
             <MessageCircle className="h-4 w-4" /> {post.comments}
@@ -164,16 +219,40 @@ const StudyGroup = ({ group }: { group: typeof studyGroups[0] }) => {
   );
 };
 
+// Subject options for tagging
+const subjectOptions = [
+  { value: 'mathematics', label: 'Mathematics' },
+  { value: 'science', label: 'Science' },
+  { value: 'english', label: 'English' },
+  { value: 'history', label: 'History' },
+  { value: 'geography', label: 'Geography' },
+  { value: 'computers', label: 'Computer Science' },
+  { value: 'arts', label: 'Arts' },
+];
+
 export default function Community() {
   const { t } = useLanguage();
   const { user } = useAuth();
   const [postContent, setPostContent] = useState('');
+  const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
+  const [showSubjectDropdown, setShowSubjectDropdown] = useState(false);
+  const [photoAdded, setPhotoAdded] = useState(false);
   
   const handlePostSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here we would handle posting to the server
     setPostContent('');
-    // For now, just clear the textarea
+    setSelectedSubject(null);
+    setPhotoAdded(false);
+    // For now, just clear the form
+  };
+  
+  const toggleAddPhoto = () => {
+    setPhotoAdded(!photoAdded);
+  };
+  
+  const toggleSubjectDropdown = () => {
+    setShowSubjectDropdown(!showSubjectDropdown);
   };
   
   return (
@@ -260,15 +339,72 @@ export default function Community() {
                         value={postContent}
                         onChange={(e) => setPostContent(e.target.value)}
                       />
+                      {photoAdded && (
+                        <div className="mb-2 p-3 border border-dashed border-gray-300 rounded-md bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                          <div className="flex items-center justify-center">
+                            <span className="text-sm text-gray-500 dark:text-gray-400">
+                              {t('community.photoPlaceholder')}
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                      
+                      {selectedSubject && (
+                        <div className="mb-2">
+                          <Badge variant="outline" className="bg-primary/10">
+                            {subjectOptions.find(s => s.value === selectedSubject)?.label}
+                            <button 
+                              className="ml-1 h-4 w-4 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 inline-flex items-center justify-center"
+                              onClick={() => setSelectedSubject(null)}
+                            >
+                              ×
+                            </button>
+                          </Badge>
+                        </div>
+                      )}
+                      
                       <div className="flex justify-between items-center">
                         <div className="flex gap-2">
-                          <Button type="button" size="sm" variant="outline">
-                            Add Photo
+                          <Button 
+                            type="button" 
+                            size="sm" 
+                            variant="outline"
+                            className={photoAdded ? 'bg-primary/10' : ''}
+                            onClick={toggleAddPhoto}
+                          >
+                            {photoAdded ? 'Photo Added' : 'Add Photo'}
                           </Button>
-                          <Button type="button" size="sm" variant="outline">
-                            Tag Subject
-                          </Button>
+                          
+                          <div className="relative">
+                            <Button 
+                              type="button" 
+                              size="sm" 
+                              variant="outline"
+                              className={selectedSubject ? 'bg-primary/10' : ''}
+                              onClick={toggleSubjectDropdown}
+                            >
+                              {selectedSubject ? 'Subject Tagged' : 'Tag Subject'}
+                            </Button>
+                            
+                            {showSubjectDropdown && (
+                              <div className="absolute top-full left-0 mt-1 w-40 bg-white dark:bg-gray-800 shadow-md rounded-md z-10 border border-gray-200 dark:border-gray-700">
+                                {subjectOptions.map(subject => (
+                                  <div 
+                                    key={subject.value}
+                                    className="px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                                    onClick={() => {
+                                      setSelectedSubject(subject.value);
+                                      setShowSubjectDropdown(false);
+                                    }}
+                                  >
+                                    {subject.label}
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         </div>
+                        
                         <Button type="submit" size="sm" disabled={!postContent.trim()}>
                           <Send className="h-4 w-4 mr-1" /> Post
                         </Button>
