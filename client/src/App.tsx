@@ -9,6 +9,8 @@ import Quiz from "@/pages/Quiz";
 import Profile from "@/pages/Profile";
 import Settings from "@/pages/Settings";
 import Help from "@/pages/Help";
+import Community from "@/pages/Community";
+import Achievements from "@/pages/Achievements";
 import Layout from "@/components/layout/Layout";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -85,6 +87,16 @@ function AuthenticatedRoutes() {
           <Route path="/help">
             <Layout>
               <Help />
+            </Layout>
+          </Route>
+          <Route path="/community">
+            <Layout>
+              <Community />
+            </Layout>
+          </Route>
+          <Route path="/achievements">
+            <Layout>
+              <Achievements />
             </Layout>
           </Route>
         </>

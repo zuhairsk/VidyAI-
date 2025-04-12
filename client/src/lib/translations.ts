@@ -676,4 +676,106 @@ export const translations: TranslationCollection = {
       economics: 'अर्थशास्त्र',
     },
   },
+  
+  // Bengali translations
+  bn: {
+    app: {
+      name: 'বিদ্যাAI++',
+      tagline: 'বহুভাষিক AI টিউটরিং এবং মেন্টরশিপ',
+    },
+    login: {
+      signIn: 'সাইন ইন',
+      signUp: 'সাইন আপ',
+      username: 'ব্যবহারকারীর নাম',
+      password: 'পাসওয়ার্ড',
+      rememberMe: 'আমাকে মনে রাখুন',
+      forgotPassword: 'পাসওয়ার্ড ভুলে গেছেন?',
+    },
+    dashboard: {
+      dashboard: 'ড্যাশবোর্ড',
+      myCourses: 'আমার কোর্স',
+      quizzes: 'কুইজ',
+      welcomeBack: 'আবার স্বাগতম, {{name}}!',
+    },
+    subjects: {
+      mathematics: 'গণিত',
+      science: 'বিজ্ঞান',
+      socialStudies: 'সামাজিক বিজ্ঞান',
+      hindi: 'হিন্দি',
+      english: 'ইংরেজি',
+      history: 'ইতিহাস',
+      geography: 'ভূগোল',
+      civics: 'নাগরিক',
+      economics: 'অর্থনীতি',
+    },
+  },
+  
+  // Gujarati translations
+  gu: {
+    app: {
+      name: 'વિદ્યાAI++',
+      tagline: 'બહુભાષી AI ટ્યુટરિંગ અને માર્ગદર્શન',
+    },
+    login: {
+      signIn: 'સાઇન ઇન',
+      signUp: 'સાઇન અપ',
+      username: 'વપરાશકર્તા નામ',
+      password: 'પાસવર્ડ',
+      rememberMe: 'મને યાદ રાખો',
+      forgotPassword: 'પાસવર્ડ ભૂલી ગયા?',
+    },
+    dashboard: {
+      dashboard: 'ડેશબોર્ડ',
+      myCourses: 'મારા અભ્યાસક્રમો',
+      quizzes: 'ક્વિઝ',
+      welcomeBack: 'પુનઃ સ્વાગત, {{name}}!',
+    },
+    subjects: {
+      mathematics: 'ગણિત',
+      science: 'વિજ્ઞાન',
+      socialStudies: 'સામાજિક અભ્યાસ',
+      hindi: 'હિન્દી',
+      english: 'અંગ્રેજી',
+      history: 'ઇતિહાસ',
+      geography: 'ભૂગોળ',
+      civics: 'નાગરિકશાસ્ત્ર',
+      economics: 'અર્થશાસ્ત્ર',
+    },
+  },
+  
+  // For remaining languages, adding minimal translations for demonstration
+  kn: {
+    app: { name: 'ವಿದ್ಯಾAI++', tagline: 'ಬಹುಭಾಷಾ AI ಶಿಕ್ಷಣ ಮತ್ತು ಮಾರ್ಗದರ್ಶನ' },
+    login: { signIn: 'ಸೈನ್ ಇನ್', signUp: 'ಸೈನ್ ಅಪ್' },
+    dashboard: { dashboard: 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್', welcomeBack: 'ಮತ್ತೆ ಸ್ವಾಗತ, {{name}}!' },
+    subjects: { mathematics: 'ಗಣಿತ', science: 'ವಿಜ್ಞಾನ' },
+  },
+  
+  ml: {
+    app: { name: 'വിദ്യAI++', tagline: 'ബഹുഭാഷാ AI ട്യൂട്ടറിംഗ് ആൻഡ് മെന്ററിംഗ്' },
+    login: { signIn: 'സൈൻ ഇൻ', signUp: 'സൈൻ അപ്പ്' },
+    dashboard: { dashboard: 'ഡാഷ്‌ബോർഡ്', welcomeBack: 'വീണ്ടും സ്വാഗതം, {{name}}!' },
+    subjects: { mathematics: 'ഗണിതം', science: 'ശാസ്ത്രം' },
+  },
+  
+  pa: {
+    app: { name: 'ਵਿਦਿਆAI++', tagline: 'ਬਹੁਭਾਸ਼ੀ AI ਟਿਊਟਰਿੰਗ ਅਤੇ ਮੈਂਟਰਸ਼ਿਪ' },
+    login: { signIn: 'ਸਾਈਨ ਇਨ', signUp: 'ਸਾਈਨ ਅੱਪ' },
+    dashboard: { dashboard: 'ਡੈਸ਼ਬੋਰਡ', welcomeBack: 'ਵਾਪਸ ਸਵਾਗਤ ਹੈ, {{name}}!' },
+    subjects: { mathematics: 'ਗਣਿਤ', science: 'ਵਿਗਿਆਨ' },
+  },
+  
+  ur: {
+    app: { name: 'ویدیاAI++', tagline: 'متعدد لسانی AI ٹیوٹرنگ اور مینٹرشپ' },
+    login: { signIn: 'سائن ان', signUp: 'سائن اپ' },
+    dashboard: { dashboard: 'ڈیش بورڈ', welcomeBack: 'خوش آمدید، {{name}}!' },
+    subjects: { mathematics: 'ریاضی', science: 'سائنس' },
+  },
+  
+  or: {
+    app: { name: 'ବିଦ୍ୟାAI++', tagline: 'ବହୁଭାଷୀ AI ଶିକ୍ଷାଦାନ ଓ ପରାମର୍ଶ' },
+    login: { signIn: 'ସାଇନ୍ ଇନ୍', signUp: 'ସାଇନ୍ ଅପ୍' },
+    dashboard: { dashboard: 'ଡ୍ୟାସବୋର୍ଡ', welcomeBack: 'ପୁନଃ ସ୍ୱାଗତ, {{name}}!' },
+    subjects: { mathematics: 'ଗଣିତ', science: 'ବିଜ୍ଞାନ' },
+  },
 };
