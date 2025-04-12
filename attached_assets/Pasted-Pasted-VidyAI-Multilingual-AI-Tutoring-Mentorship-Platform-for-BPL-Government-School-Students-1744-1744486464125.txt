@@ -1,0 +1,119 @@
+Pasted--VidyAI-Multilingual-AI-Tutoring-Mentorship-Platform-for-BPL-Government-School-Students--1744451670265.txt
+“VidyAI++ – Multilingual AI Tutoring & Mentorship Platform for BPL 
+Government School Students” 
+ Objective: 
+Design and develop an AI-powered, multilingual, and inclusive web platform to 
+provide personalized education, mentorship, and learning support to 
+underprivileged (BPL) students enrolled in government schools across India. The 
+system should align with the National Education Policy (NEP) and offer dynamic, 
+interactive, and accessible learning experiences using cutting-edge AI 
+technologies. 
+Problem Description: 
+VidyAI++ should function as an all-in-one academic assistant that adapts to each 
+student's learning style, regional language, and educational background. It must 
+integrate: 
+ Multilingual Generative AI Tutoring using Gemini/GPT to produce localized 
+content and quizzes in Indian languages (both text and speech-based) 
+tailored to each student's class level and regional syllabus. 
+ Real-Time Adaptive Content Delivery that detects the student’s learning 
+difficulty using AI, adjusts lesson complexity using reinforcement learning, 
+and offers custom interventions like explainer videos or alternate 
+problem-solving techniques. 
+ Vision-Based Learning Level Estimation by employing webcam-based 
+emotion detection, eye tracking, and fatigue analysis (via OpenCV + 
+DeepFace). The system should autonomously adapt teaching pace and 
+raise alerts for disengagement or cognitive overload. 
+ AI Mentor Matchmaking System that intelligently pairs students with local 
+or virtual mentors (volunteers/NGOs) using an ML-based model 
+considering emotional state, subject needs, availability, and regional 
+compatibility. 
+ Persona Intelligence Engine to classify students into visual, auditory, or 
+kinesthetic learners, and dynamically modify the teaching format and 
+lesson structure accordingly. 
+ Gamified Learning Experience with skill heatmaps, micro-certifications, 
+digital badges, and streak-based motivation mechanics to improve 
+engagement and retention. 
+ Offline-First Architecture to ensure functionality in low-bandwidth or no
+internet zones using PWA and TensorFlow Lite for edge AI inference. 
+ Zero Literacy Barrier Interface with voice-based navigation, large visual 
+cues, and automatic translation/transcription for students and parents 
+with limited reading skills.
+
+
+also add login page with that also add chat bot for user friendly purpose 
+the interface can be converted into dark nd white theme 
+with some glitters
+also connect to database to add video lectures in the lessons for the grades 1 to 12 
+also use NLP 
+nd there should be few videos which can be linked through youtube
+there should be quizzes nd all which are linked with data base 
+nd there should be the actual quiz 
+nd it should be Multilingual text-to-speech for improved accessibility
+
+so with all this build this  
+
+add more videos to the subjects
+nd add in my courses add subjects related to the particular grade
+nd also gather the best videos
+so that user can select accordingly the best one
+also with that remove mentors section
+nd also in language when we are selecting a particular language the whole page should be converted into the particular text
+in quizzes add some quizzes to solve
+nd show achievements
+with that also develop the profile section
+settings
+help and support
+the interface should be interactive and attractive 
+change the theme
+to white nd make it more stylish nd good looking and fix the bugs
+
+with that make sure that database is connected to internet so that users can easily access the videos without hesitation
+with that also add TTS
+as it should understand our questions while we ask
+nd make sure the voice assistant nd read aloud is working
+also show the progress
+
+make all this changes
+
+add more subjects like
+social studies
+history
+geography
+civics
+economics
+nd native languages like hindi, telugu, tamil, marathi, etc
+add videos according to that from database
+use some bright colors for the UI/UX interface
+make it simple, cool
+here
+Or continue with
+add google, twitter, facebook
+add few pictures in login page
+nd in login nd signup the boxes are not accurate make sure its accurate
+in Recommended Courses
+also add few materials like pdf so that users can understand easily
+
+nd in Your Progress
+add more subjects
+
+I'm unable to get the courses
+its showing like this
+
+My Courses
+Search courses...
+
+Filter by subject
+
+Grade Level 3
+Reset
+All Courses
+Recommended
+In Progress
+Completed
+No courses found matching your criteria.
+
+add these things for each and every grade
+
+plus..
+there should be each and every video 
+for every course nd grade 
